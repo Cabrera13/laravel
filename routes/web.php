@@ -16,8 +16,10 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/book/{id}', 'HomeController@book')->name('book');
 Route::get('/add-to-card/{id}', 'HomeController@addToCart')->name('add');
 Route::get('/shoppingCart', 'HomeController@getCart')->name('shop');
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-Route::get('/completed', 'HomeController@orderCompleted')->name('completed');                       
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
+Route::get('/login', '\App\Http\Controllers\Auth\LoginController@login' )->name('login');                       
+Route::get('/register', '\App\Http\Controllers\Auth\LoginController@register')->name('register');                       
+Route::get('/completed','HomeController@orderCompleted')->name('completed');                       
 
 Route::group([
     'prefix' => config('backpack.base.route_prefix', 'admin'),
